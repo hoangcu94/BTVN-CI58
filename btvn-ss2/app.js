@@ -106,7 +106,7 @@ class Clock {
     };
     resetTime() {
         clearInterval(this.timeInterval);
-        this.timeClock.innerHTML = `00:00`;
+        this.timeClock.innerHTML = `00:00:00`;
         this.btnStart.style.display = "inline-block";
         this.btnStop.style.display = "none";
         this.change = 0;
