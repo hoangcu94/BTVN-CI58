@@ -24,13 +24,16 @@ class Clock {
     btnStop = null;
     btnReset = null;
     change = 0;
+    index
 
     constructor() {
         this.timeClock = document.createElement("span");
         this.btnStart = document.createElement("button");
         this.btnStop = document.createElement("button");
         this.btnReset = document.createElement("button");
+        this.index = document.createElement("span");
 
+        this.index.innerHTML = index + `.`;
         this.countUp = 0; 
         this.change = 0;
         this.timeClock.innerHTML = `00:00:00`;  
@@ -51,16 +54,19 @@ class Clock {
         });
     };
     
-    render = (container, index) => {
+    render = (container) => {
         const div = document.createElement("div");
-        div.insertAdjacentHTML(`beforeend`, `<span>${index}.<span>`);
+        div.appendChild(this.index);
         div.appendChild(this.timeClock);
+
         div.appendChild(this.btnStart);
         div.appendChild(this.btnStop);
         div.appendChild(this.btnReset);
         container.appendChild(div);
-        this.timeClock.classList.add("timeclock");
         div.classList.add("player")
+
+        this.timeClock.classList.add("timeclock");
+        this.index.classList.add("index");
     }
 
     startTime() {

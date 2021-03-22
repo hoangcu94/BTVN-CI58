@@ -60,7 +60,10 @@ h1 {
 .timeclock {
     font-weight: bold;
     color: white;
-    padding:0 30px;
+    /* padding:0 30px; */
+    padding-right: 20px;
+    width: 150px;
+    text-align: right;
 }
 .control {
     width: 100%;
@@ -78,4 +81,7 @@ h1 {
     font-weight: 550;
     color: white;
     background-color: rgb(228, 92, 92);
+}
+.index {
+    width: 20px;
 }
