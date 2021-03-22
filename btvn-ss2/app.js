@@ -66,35 +66,23 @@ class Clock {
     startTime() {
         if(this.change === 0) {
             this.change = 1;
-            let min = "";
-            let sec = "";
-            let persec = "";
-            let mm;
-            let ss;
-            let pp;
             this.btnStart.style.display = "none";
             this.btnStop.style.display = "inline-block";
             this.timeInterval = setInterval(() => {
                 this.countUp++;
-                min = Math.floor(this.countUp/6000);
-                sec = (Math.floor(this.countUp/100))%60;
-                persec = this.countUp%100;
-                if(persec <10) {
-                    pp = `0${persec}`;
-                } else {
-                    pp = `${persec}`
+                let min = Math.floor(this.countUp/6000);
+                let sec = (Math.floor(this.countUp/100))%60;
+                let persec = this.countUp%100;
+                if(persec < 10) {
+                    persec = `0${persec}`;
                 };
                 if (sec < 10) {
-                    ss = `0${sec}`;
-                } else {
-                    ss = `${sec}`;
-                };
+                    sec = `0${sec}`;
+                };               
                 if(min < 10) {
-                    mm = `0${min}`;
-                } else {
-                    mm = `${min}`;
+                    min = `0${min}`;
                 };
-                this.timeClock.innerHTML = `${mm}:${ss}:${pp}`;
+                this.timeClock.innerHTML = `${min}:${sec}:${persec}`;
             },10);
         };
     };
